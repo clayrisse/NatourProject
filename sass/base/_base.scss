@@ -1,0 +1,15 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit; /*better practice like this and the real in the body*/
+}
+html {
+  //defines what 1rem is
+  font-size: 62.5%;/*this is the % of the browser size"16px" to the "10px" mesure that we want as default*/
+}
+
+body {
+  box-sizing: border-box;
+}
