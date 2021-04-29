@@ -14,6 +14,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    -webkit-backface-visibility: hidden;
     backface-visibility: hidden;
     border-radius: 3px;
     overflow: hidden; //for the overflow of the img not  adaptin border radius
@@ -100,7 +101,7 @@
     padding: 1rem 1.5rem;
     // box-decoration-break: clone;
     -webkit-box-decoration-break: clone;
-    box-decoration-break: clone
+    box-decoration-break: clone;
 
     &--1 {
       background-image: linear-gradient( to right bottom, 
@@ -167,8 +168,10 @@
 
 
 //------------------------------------------------------------------------
-  @include respond(tab-port) {
-  
+  // @include respond(tab-port) {
+  @media only screen and (max-width: 56.25em), 
+         only screen and (hover: none) { //works for screens that dont hover like touch screens the opposite is 'hover:hover'
+
     height: auto;
     border-radius: 3px;
     background-color: $color-white;

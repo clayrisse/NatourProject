@@ -18,15 +18,16 @@
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone { //600px here is better to use "em"
-    @media (max-width: 37.5em) { @content };
+    @media only screen and (max-width: 37.5em) { @content };
+    // the"only screen" is a good practice so it doesn affect prints, just screens
   }
   @if $breakpoint == tab-port { //900px
-    @media (max-width: 56.25em) { @content };
+    @media only screen and (max-width: 56.25em) { @content };
   }
   @if $breakpoint == tab-land { //1200px
-    @media (max-width: 75em) { @content };
+    @media only screen and (max-width: 75em) { @content };
   }
   @if $breakpoint == big-desktop { //1800px
-    @media (max-width: 112.5em) { @content };
+    @media only screen and (max-width: 112.5em) { @content };
   }
 }

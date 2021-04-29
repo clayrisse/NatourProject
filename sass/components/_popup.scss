@@ -7,9 +7,17 @@
   background-color: rgba($color-black, .8);
   z-index:9999;
   transition: all .3s;
-
+  
   opacity: 0;
   visibility: hidden;
+
+  //this is call gracefull degradation, and supports features that are no available in different browsers
+  @supports (-webkit-backdrop-filter: blur(10px)) or (backdrop-filter: blur(10px)) {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba($color-black, .3);
+
+  }
 
   &:target { //target from the href
     opacity: 1;

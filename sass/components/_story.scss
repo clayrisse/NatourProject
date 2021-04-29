@@ -23,13 +23,19 @@
     height: 15rem;
     // background-color: orangered;
     float: left;
-    -webkit-shape-outside: circle(50% at 50% 50%);// this is for the text alinkig circularly
-    shape-outside: circle(50% at 50% 50%);//for this to work it has to be floated and has difine heigth and width
-    
-    -webkit-clip-path: circle(50% at 50% 50%);
-    clip-path: circle(50% at 50% 50%); // this is for the actual circle shape
+
     transform: translateX(-3rem) skewX(12deg);//to separated from the text
     position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+    
+    @supports (clip-path: polygon(0 0)) or (-webkit-clip-path: polygon(0 0)){
+      -webkit-shape-outside: circle(50% at 50% 50%);// this is for the text alinkig circularly
+      shape-outside: circle(50% at 50% 50%);//for this to work it has to be floated and has difine heigth and width
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%); // this is for the actual circle shape
+      border-radius: none;
+    }
 
     @include respond(phone) {
       transform: translateX(-3rem) skewX(0);
